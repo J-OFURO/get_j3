@@ -1,8 +1,8 @@
 # get_j3
 Download tool for J-OFURO3 data set
 
- USAGE : get_j3.py [ VVV YYYY1 [YYYY2] ]
-           VVV: variable name
+ USAGE : get_j3.py [ VVV YYYY1 [YYYY2] ]  
+           VVV: variable name
          YYYY1: year
          YYYY2: if you want to get files for multiple years, please set year of end.
           
