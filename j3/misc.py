@@ -3,6 +3,7 @@
 # j3.misc.py
 #
 # CHANGES: 
+#   V1.2.0: 2017.09.28 bug fix
 #   V1.0.0: 2017.02.01
 #--------------------------------------------------  
 def get_argv():
@@ -134,7 +135,7 @@ def get2(tdir,em,files):
       else: 
         pbar=ProgressBar(widgets=[Percentage(), Bar()], maxval=ftps.size(file)).start()
         command='RETR ' + file
-        f = open(file+'.gz', 'wb')
+        f = open(file, 'wb')
         ftps.retrbinary(command, handleget2 )
         pbar.finish() 
         print "Finished"
