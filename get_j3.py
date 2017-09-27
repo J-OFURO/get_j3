@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 #
 # get_j3.py ---a script to download J-OFURO3 netCDF
 #
@@ -6,9 +6,10 @@
 #   get_j3  VVV YYYY [YYYY]
 #
 # CHANGES: 
+#   V1.2.0: 2017.09.28
 #   V1.0.0: 2017.02.01
 #--------------------------------------------------  
-version = 'V1.1.0'
+version = 'V1.2.0'
 #--------------------------------------------------  
 import sys
 from j3 import misc
