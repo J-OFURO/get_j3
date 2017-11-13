@@ -1,5 +1,6 @@
 # get_j3
 Download tool for J-OFURO3 data set
+------------------------------------
 
  *USAGE :*
      `get_j3.py [ VVV YYYY1 [YYYY2] ]`  
