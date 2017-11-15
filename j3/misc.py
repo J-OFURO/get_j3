@@ -3,6 +3,7 @@
 # j3.misc.py
 #
 # CHANGES: 
+#   V1.3.0: 2017.11.15 add tr
 #   V1.2.0: 2017.09.28 bug fix
 #   V1.0.0: 2017.02.01
 #--------------------------------------------------  
@@ -11,12 +12,41 @@ def get_argv():
     nargv = len(sys.argv)
     if nargv == 3:
       var = sys.argv[1]
-      yr1 = sys.argv[2]
-      yr2 = yr1
+      if (sys.argv[2] == 'CLM') or sys.argv[2] =='C':
+       yr1 = 0
+       yr2 = 0
+       tr = 'CLM'
+      else:
+       yr1 = sys.argv[2]
+       yr2 = yr1
+       tr = 'DAILY'
     elif nargv == 4:
       var = sys.argv[1]
       yr1 = sys.argv[2]
+      argv3 = sys.argv[3]
+      if (argv3 == 'DAILY') or (argv3 == 'DAY') or (argv3 == 'D'):
+       yr2 = yr1
+       tr = 'DAILY'
+      elif (argv3 == 'MONTHLY') or (argv3 == 'MON') or (argv3 == 'M'):
+       yr2 = yr1
+       tr = 'MONTHLY'
+      elif (argv3 == 'CLM'):
+       yr2 = yr1
+       tr = 'CLM'
+      else:
+       yr2 = argv3
+       tr = 'DAILY'
+    elif nargv == 5:
+      var = sys.argv[1]
+      yr1 = sys.argv[2]
       yr2 = sys.argv[3]
+      argv4 = sys.argv[4]
+      if (argv4 == 'DAILY') or (argv4 == 'DAY') or (argv4 == 'D'):
+       tr = 'DAILY'
+      elif (argv4 == 'MONTHLY') or (argv4 == 'MON') or (argv4 == 'M'):
+       tr = 'MONTHLY'
+      elif (argv4 == 'CLM'):
+       tr = 'CLM'
     elif nargv == 1:
       var_list()
       eos()
@@ -24,7 +54,7 @@ def get_argv():
       error(1)
       usage()
       eos()
-    return(var,yr1,yr2)
+    return(var,yr1,yr2,tr)
 
 def header(version):
     print '---------------------------'
@@ -83,7 +113,10 @@ def email():
      return(em)
 
 def filename(var,tr,sr,ver,year):
-     fname = 'J-OFURO3_' + var + '_' + ver + '_' + tr + '_' + sr + '_' + year + '.nc' + '.gz'
+     if tr == 'CLM' :
+      fname = 'J-OFURO3_' + var + '_' + ver + '_' + tr + '_' + sr + '.nc' + '.gz'
+     else: 
+      fname = 'J-OFURO3_' + var + '_' + ver + '_' + tr + '_' + sr + '_' + year + '.nc' + '.gz'
      return(fname)
 
 def var5(var):
@@ -147,9 +180,10 @@ def get2(tdir,em,files):
 
 
 def usage():
-    print' USAGE : get_j3.py [ VVV YYYY [YYYY] ]'
+    print' USAGE : get_j3.py [ VVV YYYY [YYYY] [TR] ]'
     print'           VVV: variable name'
     print'          YYYY: year'
+    print'            TR: temporal resolution'
     print'          '
     print'          If you want to list all J-OFURO3 variables '
     print'          just ./get_j3.py (without argument)'
