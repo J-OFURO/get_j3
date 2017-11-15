@@ -2,7 +2,7 @@
 Command line tool for downloading J-OFURO3 data set
 ------------------------------------
 
- *USAGE :*
+ *USAGE :*  
      `get_j3.py [ VVV YYYY1 [TR] ]`  
      `get_j3.py [ VVV YYYY1 [YYYY2] [TR] ]`  
            VVV: variable name  
@@ -22,8 +22,8 @@ Command line tool for downloading J-OFURO3 data set
      `get_j3.py [ VVV YYYY1 [YYYY2] [TR] ]`  
            VVV: 変数名  
          YYYY1: 年（4桁）  
-         YYYY2: 複数年のファイルをダウンロードしたい場合は、期間の終わりの年を指定  
+         YYYY2: 複数年のファイルをダウンロードしたい場合は、期間の終わりの年を指定  
             TR: 時間解像度 (CLM / MONTHLY / DAILY)  
-
+  
 　　　　　引数なしでJ-OFURO3の変数のリストを表示
 
